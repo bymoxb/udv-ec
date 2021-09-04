@@ -1,0 +1,36 @@
+{
+  "name": "udv-ec",
+  "version": "1.0.0",
+  "description": "Módulo para verificar números de cédulas y RUCs válidas del Ecuador",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "keywords": [
+    "ultimo",
+    "digito",
+    "verificador",
+    "ecuador",
+    "cedula",
+    "ruc",
+    "validar",
+    "ec"
+  ],
+  "author": "bymoxb",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bymoxb/udv-ec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bymoxb/udv-ec/issues"
+  },
+  "homepage": "https://github.com/bymoxb/udv-ec#readme"
+}
