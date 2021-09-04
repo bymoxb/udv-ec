@@ -6,35 +6,33 @@ edv-ec es una librería JavaScript para validar números de cédulas y RUCs emit
 
 ## Uso
 
-### Verificar cédula
-
-Con una cédula válida
+### Verificar Cédula
 
 ```js
-var udv = require("udv-ec");
 
-let cedula = "1710034065";
+const { verificarCedula } = require('udv-ec');
+
+const cedula = '1710034065';
+
+console.log(verificarCedula(cedula));
 
 // Retorna true, si es una cédula válida
-console.log(udv.verificarCedula(cedula));
-
-//Output: true
-```
-
-Con una cédula inválida
-
-```js
-var udv = require("udv-ec");
-
-let cedula = "1234567890";
-
 // Retorna false, si es una cédula inválida
-console.log(udv.verificarCedula(cedula));
-
-// Output: false
 ```
 
 ### Verificar RUC
+
+```js
+
+const { verificarRuc } = require('udv-ec');
+
+const ruc = '1713175071001';
+
+console.log(verificarRuc(ruc));
+
+// Retorna true, si es un RUC válido
+// Retorna false, si es un RUC inválido
+```
 
 ## Proceso de validación
 
