@@ -184,4 +184,4 @@ Dado el número de RUC: `1260004800001`
 
 ## License
 
-Licencia MIT
+Licencia [MIT](./LICENSE)
