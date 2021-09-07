@@ -9,7 +9,10 @@ edv-ec es una librería JavaScript para validar números de cédulas y RUCs emit
 ### Verificar Cédula
 
 ```js
+// TS y ES5+
+import { verificarCedula } from 'udv-ec';
 
+// CommonJS
 const { verificarCedula } = require('udv-ec');
 
 const cedula = '1710034065';
@@ -23,7 +26,10 @@ console.log(verificarCedula(cedula));
 ### Verificar RUC
 
 ```js
+// TS y ES5+
+import { verificarRuc } from 'udv-ec';
 
+// CommonJS
 const { verificarRuc } = require('udv-ec');
 
 const ruc = '1713175071001';
@@ -182,6 +188,6 @@ Dado el número de RUC: `1260004800001`
    2. Caso contrario, al número `11` se le resta el resultado de la aplicación del módulo. (No se aplica para este caso, ya que el resultado anterior fue `0`)
       1. Este resultado es comparado con el dígito verificador, en el caso de ser iguales, se asume que el RUC es válido, caso contrario es el RUC es inválido.
 
-## License
+## Licencia
 
 Licencia [MIT](./LICENSE)
