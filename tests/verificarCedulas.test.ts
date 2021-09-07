@@ -1,4 +1,4 @@
-const { verificarCedula } = require('../src/index');
+const { verificarCedula } = require('../lib/index');
 
 // FUENTE: GOOGLE => http://web.educacion.gob.ec/
 const cedulasValidas = [

@@ -3,9 +3,9 @@
  * @param {string} cedula - número de cedula a comprobar
  * @return {boolean} - retorna true si el número es válido, false de ser inválido
  */
-function verificarCedula(cedula = '') {
+function verificarCedula(cedula: string): boolean {
   try {
-    const auxCedula = `${cedula}`;
+    const auxCedula = cedula;
 
     if (auxCedula.length !== 10) {
       return false;
@@ -17,38 +17,35 @@ function verificarCedula(cedula = '') {
       return false;
     }
 
-    const digitoVerificador = +([...auxCedula].pop());
+    const digitoVerificador = +(auxCedula.split('').slice(-1));
 
-    const { impares: imparesList, pares: paresList } = [...auxCedula.substr(0, 9)]
-      .reduce(({ pares, impares }, c, i) => (i % 2 ? {
-        pares: [...pares, c],
-        impares,
-      } : {
-        pares,
-        impares: [...impares, c],
-      }), { pares: [], impares: [] });
+    const coeficientes = [2, 1, 2, 1, 2, 1, 2, 1, 2];
 
-    const imparesListMult = imparesList.map((i) => ((i * 2) > 9 ? (i * 2) - 9 : i * 2));
+    const sumaT = auxCedula.substr(0, 9).split('').reduce((p, c, i) => {
+      let aux = 0;
 
-    const sumaImpares = imparesListMult.reduce((p, c) => (+p + +c), 0);
-    const sumaPares = paresList.reduce((p, c) => (+p + +c), 0);
+      const mult = (+c) * coeficientes[i];
 
-    const sumaT = sumaImpares + sumaPares;
-    const modulo10 = sumaT % 10;
+      aux = mult > 9 ? mult - 9 : mult;
 
-    return (modulo10 === 0) ? (digitoVerificador === 0) : ((10 - modulo10) === digitoVerificador);
+      return p + aux;
+    }, 0);
+
+    const residuo = sumaT % 10;
+
+    return (residuo === 0) ? (digitoVerificador === 0) : ((10 - residuo) === digitoVerificador);
   } catch (error) {
     return false;
   }
 }
 
-function verificarPJ(ruc = '') {
+function verificarPJ(ruc: string): boolean {
   try {
     const coeficientes = [4, 3, 2, 7, 6, 5, 4, 3, 2];
 
-    const digitoVerificador = +([...ruc].pop());
+    const digitoVerificador = +(ruc.split('').slice(-1));
 
-    const multiplicacion = [...ruc.substr(0, 9)]
+    const multiplicacion = ruc.substr(0, 9).split('')
       .reduce((p, c, i) => ((p) + ((+c) * coeficientes[i])), 0);
 
     const residuo = multiplicacion % 11;
@@ -59,13 +56,13 @@ function verificarPJ(ruc = '') {
   }
 }
 
-function verificarIP(ruc = '') {
+function verificarIP(ruc: string): boolean {
   try {
     const coeficientes = [3, 2, 7, 6, 5, 4, 3, 2];
 
-    const digitoVerificador = +([...ruc].pop());
+    const digitoVerificador = +(ruc.split('').slice(-1));
 
-    const multiplicacion = [...ruc.substr(0, 8)]
+    const multiplicacion = ruc.substr(0, 8).split('')
       .reduce((p, c, i) => ((p) + ((+c) * coeficientes[i])), 0);
 
     const residuo = multiplicacion % 11;
@@ -81,9 +78,9 @@ function verificarIP(ruc = '') {
  * @param {string} ruc - número de ruc a comprobar
  * @return {boolean} - retorna true si el número es válido, false de ser inválido
  */
-function verificarRuc(ruc = '') {
+function verificarRuc(ruc: string): boolean {
   try {
-    const auxRuc = `${ruc}`;
+    const auxRuc = ruc;
 
     if (auxRuc.length !== 13) return false;
 
@@ -114,7 +111,7 @@ function verificarRuc(ruc = '') {
   }
 }
 
-module.exports = {
+export {
   verificarCedula,
   verificarRuc,
 };

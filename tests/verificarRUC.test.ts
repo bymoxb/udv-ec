@@ -1,4 +1,4 @@
-const { verificarRuc } = require('../src/index');
+const { verificarRuc } = require('../lib/index');
 
 // FUENTE: GOOGLE => https://www.aduana.gob.ec/
 const rucsValidos = [
