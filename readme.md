@@ -2,7 +2,9 @@
 
 ## Introducción
 
-edv-ec es una librería JavaScript para validar números de cédulas y RUCs emitidos en Ecuador.
+El último dígito verificador es el décimo dígito de la cédula de identidad utilizado para comprobar que el número de la cédula es válido. Es un control para evitar errores o fraudes en el número de identificación. El cálculo del último dígito se hace a través de un algoritmo matemático que usa los primeros 9 dígitos de la cédula.
+
+`edv-ec` es una librería JavaScript para validar números de cédulas y RUCs emitidos en Ecuador.
 
 ## Uso
 
